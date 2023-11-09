@@ -38,7 +38,7 @@ public class Ex03_Servlet extends HttpServlet {
 			PrintWriter writer = response.getWriter();
 			writer.println("<html>");
 			writer.println("<body>");
-			writer.println("<h1> n</h1>");
+			writer.println("<h1> asdn</h1>");
 			writer.println("</body>");
 			writer.println("</html>");
 		}
