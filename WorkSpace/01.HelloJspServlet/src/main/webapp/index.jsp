@@ -13,10 +13,21 @@
 				<td>GET 방식</td>
 				<form  action = "Ex03" method = "get">
 				<td>
-					
-					
+					<input type = "text" name = "id"/>
+					<input type = "submit"/>
 				</td>
 				</form>
+			</tr>
+				<tr>
+				<td>GET 방식</td>
+				<form  action = "Ex03" method = "post">
+				<td>
+				<input type = "text" name = "id"/>
+					
+					<input type = "submit" />
+				</td>
+				</form>
+			</tr>
 			</tr>
 				<tr>
 				<td>GET 방식</td>
@@ -28,7 +39,6 @@
 				</td>
 				</form>
 			</tr>
-			
 		</table>
 </body>
 </html>

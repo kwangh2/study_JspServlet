@@ -27,7 +27,7 @@ public class Ex03_Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		if("admin".equals(request.getParameter("pw")) && "admin1234".equals(request.getParameter("pw"))) {
+		if("admin".equals(request.getParameter("id")) && "admin1234".equals(request.getParameter("pw"))) {
 			PrintWriter writer = response.getWriter();
 			writer.println("<html>");
 			writer.println("<body>");
