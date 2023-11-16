@@ -1,6 +1,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,15 @@
 	%>
 	<h1>로그인 성공 <%= list.get(i)%></h1>
 	<%} %>
-	<%= key %>
+	
+
+	<h3>${key} : 해당하는 규칙은 request.getAttribute("key") 를 줄여서 사용이 가능하게 해줌 </h3>
+	<c:forEach var = "i" begin = "0" end = "10">
+		<p>반복문 : ${i}</p>
+	</c:forEach>
+	<c:forEach items="${list}" var="str">
+		<p>${str}</p>
+	</c:forEach>
 	<%@ include file="/include/footer.jsp" %>
 </body>
 </html>

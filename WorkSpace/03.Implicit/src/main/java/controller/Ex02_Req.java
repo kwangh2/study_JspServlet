@@ -40,7 +40,7 @@ public class Ex02_Req extends HttpServlet {
 		arrList.add("String 4");
 		arrList.add("String 5");
 		
-		req.setAttribute("key", arrList.toString());
+		req.setAttribute("key", "data");
 //		rd.forward(req, resp);
 		
 		ArrayList<String> list = new ArrayList();
