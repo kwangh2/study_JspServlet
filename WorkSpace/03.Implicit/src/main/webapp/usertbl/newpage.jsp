@@ -9,26 +9,26 @@
 </head>
 <body>
 	<%@ include file="/include/header.jsp" %>
-	<form action = "update" method="get">
-  <div class="form-group">
+	<!-- form태그의 액션이 바뀌어야한다. -->
+	<form  action = "insert">
+	<!-- 인서트요청한곳으로 액션  -->
+	  <div class="form-group">
     <label>이름</label>
-<%--     <input type="text" class="form-control" name="username" value="${dto.username}" > --%>
-	<input type="hidden" name="username" value="${dto.username}">
-	<p>${dto.username}</p>
+    <input type="text" class="form-control" name="username" >
   </div>
     <div class="form-group">
     <label>출생년도</label>
-    <input type="number" class="form-control" name="birthyear" value="${dto.birthyear}">
+    <input type="number" class="form-control" name="birthyear" >
   </div>
     <div class="form-group">
     <label>주소</label> 
-    <input type="text" class="form-control" name="address" value="${dto.address}">
+    <input type="text" class="form-control" name="address">
   </div>
     <div class="form-group">
     <label>폰번호</label>
-    <input type="text" class="form-control" name="mobile" value="${dto.mobile}">
+    <input type="text" class="form-control" name="mobile" >
   </div>
-  <input type="submit" class="btn btn-primary" value="수정하기">
+  <input type="submit" class="btn btn-primary" value="추가하기">
 </form>
 	<%@ include file="/include/footer.jsp" %>
 </body>

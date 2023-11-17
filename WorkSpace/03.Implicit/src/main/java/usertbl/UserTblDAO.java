@@ -46,9 +46,9 @@ public class UserTblDAO {
 			while(rs.next()) {
 				UserTblDTO dto = new UserTblDTO();
 				dto.setUsername(rs.getString("username"));
-				dto.setAddress(rs.getString("ADDRESS"));
-				dto.setBirthyear(rs.getInt("BIRTHYEAR"));
-				dto.setMobile(rs.getString("Mobile"));
+				dto.setAddress(rs.getString("address"));
+				dto.setBirthyear(rs.getInt("birthyear"));
+				dto.setMobile(rs.getString("mobile"));
 				list.add(dto);
 			}
 			 
@@ -85,19 +85,51 @@ public class UserTblDAO {
 		
 	}
 	
-	public void updateTbl(String name) {
-		UserTblDTO dto = new UserTblDTO();
-		ArrayList<UserTblDTO> list = new ArrayList<>();
-		
-		if(!isConnection()) return;
-		 
-		try {
-			ps = conn.prepareStatement("update usertbl set birthyear=?, address=?, mobile=? where  username = ?;");
-			ps.setInt(1, Integer.parseInt("mobile"));
-			
+	//데이터 1건 업데이트
+	//1. Conn 통신 열기 ->isConnection();
+	//2. Statement 통신을 통해 전송  -> conn 객체, sql
+	//3.Select의 경우 결과를 받기 ResultSet
+	public void update(UserTblDTO dto) {
+		 if(isConnection()==false) return;
+		 try {
+			ps = conn.prepareStatement("update usertbl set address = ?, birthyear = ?, mobile = ? where username = ? ");
+			ps.setString(1, dto.getAddress());
+			ps.setInt(2, dto.getBirthyear());
+			ps.setString(3, dto.getMobile());
+			ps.setString(4, dto.getUsername());
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	public void delete(String username) {
+		 if(isConnection()==false) return;
+		 try {
+			ps = conn.prepareStatement("delete from usertbl where username = ? ");
+			ps.setString(1, username);
+			
+			int result = ps.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void insert(UserTblDTO dto) {
+		if(isConnection()==false) return ;
+		
+		try {
+			ps = conn.prepareStatement("insert into usertbl (USERNAME, BIRTHYEAR, ADDRESS, MOBILE)  values (?,?,?,?) ");
+			ps.setString(1, dto.getUsername());
+			ps.setInt(2, dto.getBirthyear());
+			ps.setString(3, dto.getAddress());
+			ps.setString(4, dto.getMobile());
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 } 
