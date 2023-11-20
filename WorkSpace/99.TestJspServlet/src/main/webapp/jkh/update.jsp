@@ -9,10 +9,11 @@
 </head>
 <body>
 <%@ include file="/include/header.jsp" %>
-<form>
+<form action = "updatevalue">
   <div class="form-group">
-    <label for="exampleInputEmail1">수정하기</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name = "username">
+  <h1>수정하기</h1>
+    <label for="exampleInputEmail1">이름</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "username" value= "${username}">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">생년월일</label>
@@ -26,6 +27,5 @@
 </form>
 
 <%@ include file="/include/footer.jsp" %>
-
 </body>
 </html>

@@ -32,12 +32,9 @@ public class UserTblController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		if(req.getServletPath().equals("/list")) {
-
 			ArrayList<UserTblDTO> list = dao.selectList();
 			req.setAttribute("list", list);//${list}
-			
 			rd = req.getRequestDispatcher("usertbl/list.jsp");
-			
 		}else if(req.getServletPath().equals("/detail")) {
 			String name = req.getParameter("name");
 			UserTblDTO dto = dao.selectOne(name);

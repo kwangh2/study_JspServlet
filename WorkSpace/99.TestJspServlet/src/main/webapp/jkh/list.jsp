@@ -14,7 +14,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
+      <th scope="col">First</a></th>
       <th scope="col">Last</th>
       <th scope="col">Handle</th>
     </tr>
@@ -23,7 +23,7 @@
   <c:forEach items="${list}" var="dto">
     <tr>
       <th scope="row">1</th>
-      <td>${dto.username}</td>
+      <td><a href="update?username=${dto.username}">${dto.username}</a></td>
       <td>${dto.birthday}</td>
       <td>${dto.bloodtype}</td>
     </tr>
@@ -33,6 +33,5 @@
 
 
 <%@ include file="/include/footer.jsp" %>
-
 </body>
 </html>

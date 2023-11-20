@@ -27,7 +27,15 @@ public class Controller extends HttpServlet {
 		req.setAttribute("list", list);
 		rd.forward(req, resp);
 		} else if(req.getServletPath().equals("/update")) {
+			testTblDTO dto = new testTblDTO();
+
+			dto.setUsername(req.getParameter("username"));
+			req.setAttribute("username", dto.getUsername());
 			rd = req.getRequestDispatcher("jkh/update.jsp");
+			rd.forward(req, resp);
+		} else if(req.getServletPath().equals("/updatevalue")) {
+			
+			rd = req.getRequestDispatcher("/jkh/list.jsp");
 			rd.forward(req, resp);
 		}
 	}

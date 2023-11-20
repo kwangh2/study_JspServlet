@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
 
@@ -21,7 +22,6 @@ public class UserTblDAO {
 		String user = "hanul";
 		String password = "0000";
 		try {
-			
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				conn = DriverManager.getConnection(url, user, password);

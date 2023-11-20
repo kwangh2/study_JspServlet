@@ -52,4 +52,16 @@ public class testTblDAO {
 		}
 		return list;
 	}
+	
+	public void update() {
+		if(isConnect()==false) return;
+		
+		try {
+			
+			conn.prepareStatement("update testtbl set birthday = ? , bloodtype = ? where ?");
+			ps.
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
