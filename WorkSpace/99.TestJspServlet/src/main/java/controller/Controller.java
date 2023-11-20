@@ -29,8 +29,6 @@ public class Controller extends HttpServlet {
 		} else if(req.getServletPath().equals("/update")) {
 			rd = req.getRequestDispatcher("jkh/update.jsp");
 			rd.forward(req, resp);
-			
-			
 		}
 	}
 }
