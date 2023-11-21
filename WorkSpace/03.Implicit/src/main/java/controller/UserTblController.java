@@ -60,7 +60,7 @@ public class UserTblController extends HttpServlet {
 			String username = req.getParameter("username"); //url을 통해서 get방식으로 username 받음 
 			dao.delete(username);
 			resp.sendRedirect("list");
-			return;
+
 		}else if(req.getServletPath().equals("/newpage")) { 
 
 					
