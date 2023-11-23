@@ -2,6 +2,7 @@ package mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -25,18 +26,21 @@ public class MybatisTblDAO {
 		}
 		
 	}
-	public int insert(MybatisVO vo) {
-		int result = sql.insert("",vo);
+	public int insert(MybatisTblVO vo) {
+
+		int result = sql.insert("testmapper.insertTbl",vo);
 		return result ;
 	}
-	public int update(MybatisVO vo) {
-		return sql.update("",vo);
+	public int update(MybatisTblVO vo) {
+		int result = sql.update("testmapper.updateTbl",vo);
+		return result;
+				
 	}
-	public int delete(MybatisVO vo) {
-		return sql.delete("",vo);
+	public int delete(MybatisTblVO vo) {
+		return sql.delete("testmapper.deleteTbl",vo);
 	}
 	public List<MybatisTblVO> select() {
-		List<MybatisTblVO> list = sql.selectList("");
+		List<MybatisTblVO> list = sql.selectList("testmapper.selectTbl");
 		return list;
 	}
 }

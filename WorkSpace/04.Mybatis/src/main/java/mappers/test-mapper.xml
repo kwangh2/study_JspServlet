@@ -55,4 +55,16 @@ select태그는 반드시 id와 resultType을 가진다
 	<delete id="delete">
 		DELETE FROM mybatistbl WHERE COL1 = 'cont'
 	</delete>
+	<insert id="insertTbl">
+		insert into mybatistbl (COL1 , COL2 , COL3) VALUES (#{col1}, #{col2}, #{col1})
+	</insert>
+	<update id ="updateTbl">
+		update mybatistbl set COL2= #{col2} , COL3 = #{col3} where COL1 = #{col1}
+	</update>
+	<delete id= "deleteTbl">
+		delete mybatistbl where COL1 = #{col1}
+	</delete>
+	<select id="selectTbl" resultType="mybatis.MybatisTblVO">
+		select * from mybatistbl
+	</select>
 </mapper>

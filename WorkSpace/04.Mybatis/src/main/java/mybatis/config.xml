@@ -15,6 +15,7 @@
     </environment>
   </environments>
   <mappers>
+  <!-- com.mybatis.hanul -->
     <mapper resource="mappers/test-mapper.xml"/>
   </mappers>
 </configuration>

@@ -78,5 +78,6 @@ public class MybatisController extends HttpServlet {
 			int result = sql.delete("testmapper.delete");
 			System.out.println(result);
 		}
+		//selectOne, selectList , insert , update, delete
 	}
 }
