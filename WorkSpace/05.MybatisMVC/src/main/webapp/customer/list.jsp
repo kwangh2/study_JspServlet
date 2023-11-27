@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,178 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="/customer/header.jsp" %>
-	<h1>고객 목록을 보여줍니다.</h1>
+	<%@ include file="/customer/header.jsp"%>
+
+	<section class="page-section">
+		<div class="container">
+		<button type="button" class="btn btn-dark align-middle" id="insertModalBtn">신규추가</button>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">순번</th>
+						<th scope="col">이름</th>
+						<th scope="col">성별</th>
+						<th scope="col">이메일</th>
+						<th scope="col">연락처</th>
+						<th scope="col">수정</th>
+						<th scope="col">이승기 - 삭제</th>
+					</tr>
+				</thead>
+
+				<!-- c:if , c:choose ..
+					when : test = 조건1
+					when : test = 조건2
+					otherwise = else
+					empty  : 리스트가 비어있거나 null인지
+				
+				 -->
+				<c:choose>
+					<c:when test="${empty list}">
+						<tr>
+							<td colspan="6" class="text-center">데이터가 없습니다</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tbody>
+							<c:forEach items="${list}" var="vo" varStatus="i">
+								<tr>
+									<th scope="row">${i.index+1}</th>
+									<td>${vo.name}</td>
+									<td>${vo.gender}</td>
+									<td>${vo.email}</td>
+									<td>${vo.phone}</td>
+									<td><a onclick="updateCus(${i.index+1},${vo.customer_id})"
+										class="btn btn-light">수정</a></td>
+									<td><a onclick="deleteCus(${vo.customer_id})"
+										class="btn btn-danger">삭제</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</c:otherwise>
+				</c:choose>
+			</table>
+		</div>
+	</section>
+
+	<!-- Modal -->
+	<div class="modal fade" id="insertModal" tabindex="-1" 
+		aria-labelledby="insertModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="insertModalLabel" >고객 추가</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<form action="insert.cu" method="get">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="name">이름</label> <input type="text"
+								class="form-control" id="name" name="name" placeholder="이름입력">
+						</div>
+						<div class="form-group">
+							<label for="email">이메일</label> <input type="email"
+								class="form-control" id="email" name="email" placeholder="email">
+						</div>
+						<div class="form-group">
+							<label for="phone">phone</label> <input type="tel"
+								class="form-control" id="phone" name="phone" placeholder="phone">
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gender"
+								id="gender" value="남" checked> <label
+								class="form-check-label" for="exampleRadios1"> 남 </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gender"
+								id="gender" value="여"> <label class="form-check-label"
+								for="exampleRadios2"> 여 </label>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">취소</button>
+							<input type="submit" class="btn btn-primary" value="추가"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+ 
+ 
+ 	<!-- Update Modal -->
+	<div class="modal fade" id="updateModal" tabindex="-1" 
+		aria-labelledby="updateModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateModalLabel" >정보수정</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<form action="update.cu" method="get">
+				<input type="hidden" name="customer_id">
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="name">이름</label> <input type="text"
+								class="form-control" id="name" name="name" placeholder="이름입력">
+						</div>
+						<div class="form-group">
+							<label for="email">이메일</label> <input type="email"
+								class="form-control" id="email" name="email" placeholder="email">
+						</div>
+						<div class="form-group">
+							<label for="phone">phone</label> <input type="tel"
+								class="form-control" id="phone" name="phone" placeholder="phone">
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gender"
+								id="gender" value="남" checked> <label
+								class="form-check-label" for="exampleRadios1"> 남 </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="gender"
+								id="gender" value="여"> <label class="form-check-label"
+								for="exampleRadios2"> 여 </label>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">취소</button>
+							<input type="submit" class="btn btn-primary" value="수정"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+ 
+	<script type="text/javascript">
+	function updateCus(idx, customer_id){
+		console.log(idx + " : " + customer_id);
+		var name = $('table tr:eq('+ idx+') td:eq(0)').text();
+		var gender = $('table tr:eq('+ idx+') td:eq(1)').text();
+		var email = $('table tr:eq('+ idx+') td:eq(2)').text();
+		var phone = $('table tr:eq('+ idx+') td:eq(3)').text();
+		console.log(name + " " + gender + " " + email + " " + phone);
+		$('#updateModal input[name=customer_id]').val(customer_id);
+		$('#updateModal input[name=name]').val(name);
+		$('#updateModal input[name=email]').val(email);
+		$('#updateModal input[name=phone]').val(phone);
+		$('#updateModal input[name=gender][value=' + gender + ']').click();
+		$('#updateModal').modal('show') ;
+	}
 	
-<%@ include file="/customer/footer.jsp" %>
+	function deleteCus(customer_id){
+		if(confirm('정말 삭제 하시겠습니까?')){
+			location.href='delete.cu?customer_id=' + customer_id;
+		}
+	}
+	$('#insertModalBtn').on("click",function(){
+		$('#insertModal').modal('show');
+	});
+	</script>
+	<%@ include file="/customer/footer.jsp"%>
 </body>
 </html>

@@ -20,9 +20,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
    <body id="page-top">
-        <video class="w-100 h-100" src="assets/img/visual.mp4" autoplay muted loop 
-        style="position: absolute; top: 0px; left: 0px; opacity: 0.3; object-fit: cover;"
-        ></video>
+       
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -41,6 +39,10 @@
             </div>
         </nav>
         <!-- Masthead-->
+        <header class="masthead position-relative"></header>
+         <video class="w-100 h-100" src="assets/img/visual.mp4" autoplay muted loop 
+        style="position: absolute; top: 0px; left: 0px; opacity: 0.3; object-fit: cover;"
+        ></video>
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">

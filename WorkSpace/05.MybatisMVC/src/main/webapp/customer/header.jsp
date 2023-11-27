@@ -19,10 +19,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
     <body id="page-top">
-        <video class="w-100 h-100" src="assets/img/visual.mp4" autoplay muted loop
-        style="position: absolute; top: 0px; left: 0px; opacity: 0.3; object-fit: cover;"></video>
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -39,7 +39,14 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+                <header class="masthead position-relative">
+         <div class="w-100 h-100 bg-black"
+        style="position: absolute; top: 0px; left: 0px; z-index: -1;"
+        ></div>
+      	
+      	<video class="w-100 h-100" src="assets/img/visual.mp4" autoplay muted loop 
+        style="position: absolute; top: 0px; left: 0px; opacity: 0.3; object-fit: cover; z-index: -1;"
+        ></video>
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
