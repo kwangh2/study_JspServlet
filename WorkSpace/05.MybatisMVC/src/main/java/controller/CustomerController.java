@@ -44,8 +44,9 @@ public class CustomerController extends HttpServlet {
 			vo.setGender(req.getParameter("gender"));
 			vo.setName(req.getParameter("name"));
 			vo.setPhone(req.getParameter("phone"));
+			vo.setCustomer_id(0);
 			dao.update(vo);
-			resp.sendRedirect("list.cu");
+			resp.sendRedirect("list.cu");//url을 요청(응답)
 		}
 	}
 }

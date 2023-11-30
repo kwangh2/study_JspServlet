@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sg">
+	<select id = "test" resultType="integer">
+		select 1 from dual
+	</select>
+	
+	<select id = "select" resultType="sg.sgVO">
+	    select e.first_name||' '||e.last_name
+		AS name, D.department_name , E.SALARY ,  E.EMAIL ,
+		E.employee_id
+		FROM employees E 
+		LEFT OUTER JOIN departments D 
+		ON e.department_id  = d.department_id
+	</select>
+	
+	<delete id="delete">
+		delete from employees where employee_id = #{employee_id}
+	</delete>
+	
+	<insert id="insert">
+		        insert into employees (EMPLOYEE_ID ,LAST_NAME, EMAIL, SALARY, DEPARTMENT_ID,HIRE_DATE) VALUES (seq_customer_id.nextval, #{name},#{email},#{salary},#{department},SYSDATE);
+	</insert>
+</mapper>
