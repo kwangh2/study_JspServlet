@@ -21,6 +21,6 @@
 	</insert>
 	
 	<update id="update">
-		UPDATE customer SET NAME = #{name} , GENDER = #{gender}, EMAIL=#{email}, phone = #{phone}  WHERE customer_id = #{customer_id}
+		UPDATE customer SET NAME = #{name} , GENDER = #{gender}, EMAIL = #{email}, phone = #{phone}  WHERE customer_id = #{customer_id}
 	</update>
 </mapper>

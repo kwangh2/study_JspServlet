@@ -6,7 +6,6 @@
 	<select id = "test" resultType="integer">
 		select 1 from dual
 	</select>
-	
 	<select id = "select" resultType="hr.hrVO">
 	SELECT EMPLOYEE_ID, FIRST_NAME||' '||LAST_NAME name, EMAIL, TO_CHAR( HIRE_DATE ,'yyyy-mm-dd' ) hire_date, SALARY, DEPARTMENT_NAME, JOB_TITLE
 	FROM EMPLOYEES E LEFT OUTER JOIN DEPARTMENTS D ON E.DEPARTMENT_ID = D.DEPARTMENT_ID

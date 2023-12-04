@@ -20,7 +20,9 @@
 		delete from employees where employee_id = #{employee_id}
 	</delete>
 	
-	<insert id="insert">
-		        insert into employees (EMPLOYEE_ID ,LAST_NAME, EMAIL, SALARY, DEPARTMENT_ID,HIRE_DATE) VALUES (seq_customer_id.nextval, #{name},#{email},#{salary},#{department},SYSDATE);
+	<insert id = "insert">
+		insert into employees (EMPLOYEE_ID ,LAST_NAME, EMAIL, SALARY, DEPARTMENT_ID,HIRE_DATE) VALUES (seq_customer_id.nextval, #{name} ,#{email},#{salary},#{department_id},SYSDATE)
 	</insert>
+	
+	
 </mapper>

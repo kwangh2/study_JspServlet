@@ -34,13 +34,13 @@ public class SGController extends HttpServlet {
 		}else if (path.equals("/delete.sg")) {
 			dao.delete(Integer.parseInt(req.getParameter("id")));
 			resp.sendRedirect("list.sg");
-		}else if (path.equals("/insert.sg")) {
+		}else if(path.equals("/insert.sg")) {
 			vo.setName(req.getParameter("name"));
-			vo.setDepartment_name(req.getParameter("department"));
+			vo.setDepartment_id(req.getParameter("department"));
 			vo.setEmail(req.getParameter("email"));
 			vo.setSalary(Integer.parseInt(req.getParameter("salary")));
 			dao.insert(vo);
-			resp.sendRedirect("/insert.sg");
+			resp.sendRedirect("list.sg");
 		}
 	}
 }

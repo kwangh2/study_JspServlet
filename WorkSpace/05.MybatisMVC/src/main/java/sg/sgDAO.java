@@ -19,4 +19,5 @@ public class sgDAO extends MybatisConnection{
 	public void insert(sgVO vo) {
 		sql.insert("sg.insert",vo);
 	}
+
 }
