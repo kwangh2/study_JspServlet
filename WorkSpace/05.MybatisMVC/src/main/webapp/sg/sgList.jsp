@@ -35,12 +35,13 @@
     
   <c:forEach items="${list}" var="vo" varStatus="i">
     <tr>
-      <th>${vo.name}</th>
-      <th>${vo.department_name}</th>
-      <th>${vo.email}</th>
-      <th>${vo.salary}</th>
-	 <th><a href="delete.sg?id=${vo.employee_id} " class="btn btn-outline-danger">삭제</a></th>
-	 <td><a onclick="updateCus(${i.index},${vo.employee_id})"class="btn btn-danger">수정</a></td>
+      <td>${vo.name}</td>
+      <td>${vo.department_name}</td>
+      <td>${vo.email}</td>
+      <td>${vo.salary}</td>
+      <td>${i.index}</td>
+	 <td><a href="delete.sg?id=${vo.employee_id} " class="btn btn-outline-danger">삭제</a></td>
+	 <td><a onclick="updateCus(${i.index+2},${vo.employee_id})"class="btn btn-danger">수정</a></td>
     </tr>
     </c:forEach>
   </tbody>
@@ -83,11 +84,11 @@
 		</div>
 	</div>
  	<script type="text/javascript">
- 	function updateCus(idx,employee_id){
- 		var name = $('table tr:eq('+ idx +') td:eq(0)').text();
- 		var department  = $('table tr:eq('+ idx +') td:eq(1)').text();
- 		var email = $('table tr:eq('+ idx +') td:eq(2)').text();
- 		var salary = $('table tr:eq('+ idx +') td:eq(3)').text();
+ 	function updateCus(idx, employee_id){
+ 		var name = $('table tr:eq('+idx+') td:eq(0)').text();
+ 		var department  = $('table tr:eq('+idx+') td:eq(1)').text();
+ 		var email = $('table tr:eq('+idx+') td:eq(2)').text();
+ 		var salary = $('table tr:eq('+idx+') td:eq(3)').text();
  		$('#updateModal input[name=name]').val(name);
  		$('#updateModal input[name=department]').val(department);
  		$('#updateModal input[name=email]').val(email);
