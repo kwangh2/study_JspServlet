@@ -6,7 +6,7 @@ import common.MybatisConnection;
 
 public class MemberDAO extends MybatisConnection implements MemberService{
 
-	public MemberDAO(DataResource res) {
+	public MemberDAO() {
 		super(DataResource.HANUL);
 		
 	}
@@ -22,8 +22,8 @@ public class MemberDAO extends MybatisConnection implements MemberService{
 	}
 
 	@Override
-	public MemberVO member_login(HashMap<String, String> param) {
-		return null;
+	public MemberVO member_login(MemberVO vo) {
+		return sql.selectOne("me.login" , vo);
 	}
 
 	@Override

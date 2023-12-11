@@ -9,7 +9,7 @@ public interface MemberService {
 	int member_join(MemberVO vo);
 	int member_idCheck(String user_id);
 	
-	MemberVO member_login(HashMap<String, String> param);
+	MemberVO member_login(MemberVO vo);
 	int member_update(MemberVO vo);
 	int member_delete(MemberVO vo);
 	

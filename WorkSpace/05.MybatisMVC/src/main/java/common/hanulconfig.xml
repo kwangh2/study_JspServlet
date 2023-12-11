@@ -19,5 +19,6 @@
   <!-- com.mybatis.hanul -->
     <mapper resource="mappers/cus-mapper.xml"/>
     <mapper resource="mappers/sg-mapper.xml"/>
+    <mapper resource="mappers/me-mapper.xml"/>
   </mappers>
 </configuration>
