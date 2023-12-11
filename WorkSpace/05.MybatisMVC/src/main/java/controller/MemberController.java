@@ -58,8 +58,7 @@ public class MemberController extends HttpServlet {
 		}else if (req.getServletPath().equals("/idCheck.me")) {
 			System.out.println(req.getParameter("user_id"));
 			service = new MemberDAO_id();
-			service.member_idCheck(req.getParameter("user_id"));
-			req.setAttribute("idcheck", service.member_idCheck(req.getParameter("user_id")));
+			service.member_idCheck(req.getParameter("user_id"));	
 		}
 	}
 }

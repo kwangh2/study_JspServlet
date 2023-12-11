@@ -99,7 +99,7 @@
 	});
 	
 	$('#btn_join').click(function (){
-		if (! $('#user_id').hasClass('checked')) alert('아이디 중복확인하세요')return;
+		if (! $('#user_id').hasClass('checked')) alert('아이디 중복확인하세요');return;
 		console.log('유효성 검사해야함');
 		$('form').submit();//폼태그 전송 
 	});
@@ -114,18 +114,18 @@
 			alert('5글자 이상 입력해주세요');
 			return;
 		}
+		$.ajax({
+			url: 'idCheck.me',
+			data : {user_id:user_id}, /* 왼쪽이 이름 오른쪽이 값 */
+			success: function(res){
+				
+			}, error: function(req){
+				console.log(req.status);
+			}
+		});
 	});
 	
-	$.ajax({
-		url: 'idCheck.me',
-		data : {user_id:user_id} /* 왼쪽이 이름 오른쪽이 값 */
-		success: function(res){
-			$('#user_id').val().submit();
-		}, error: function(req){
-			console.log(req.status);
-		}
-	});
-	
+
 	
 	</script>
 </body>
