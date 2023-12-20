@@ -9,6 +9,10 @@
 	
 	<select id = "select" resultType="customer.CustomerVO">
 		select * from customer WHERE 1=1
+				<if test="query != null">
+			AND CUSTOMER_ID LIKE '%'||#{query}||'%'
+			OR UPPER(NAME) LIKE '%'||UPPER(#{query})||'%'
+		</if>
 	</select>
 	
 	<delete id="delete">
